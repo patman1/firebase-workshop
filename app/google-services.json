@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1099359452007",
+    "firebase_url": "https://wearadvisor-1005d.firebaseio.com",
+    "project_id": "wearadvisor-1005d",
+    "storage_bucket": "wearadvisor-1005d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1099359452007:android:29b9e9df41e006b5",
+        "android_client_info": {
+          "package_name": "com.wearadvisor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1099359452007-3r3j0jr5ieo6he07s46orddv4l9eoqi2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAGGm-ME0QtqbqTV9FSgLjmbCA2egO9QY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
