@@ -1,6 +1,7 @@
 package com.wearadvisor.db;
 
 import android.support.annotation.NonNull;
+import android.support.v4.util.ArrayMap;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -11,6 +12,9 @@ import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.wearadvisor.WearAdvisor;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public enum Connector {
     INSTANCE;
@@ -66,11 +70,14 @@ public enum Connector {
     }
 
     public void ask(String question) {
+        Map<String, String> update = new HashMap<>();
+        update.put("added", "" + System.currentTimeMillis());
+        update.put("question", question);
         FirebaseDatabase
                 .getInstance()
                 .getReference()
                 .child("ask")
                 .push()
-                .setValue(question);
+                .setValue(update);
     }
 }
