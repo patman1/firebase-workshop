@@ -70,6 +70,7 @@ public enum Connector {
                 .getInstance()
                 .getReference()
                 .child("ask")
+                .push()
                 .setValue(question);
     }
 }
