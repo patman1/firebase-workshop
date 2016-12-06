@@ -70,14 +70,16 @@ public enum Connector {
     }
 
     public void ask(String question) {
-        Map<String, String> update = new HashMap<>();
+        Map<String, Object> update = new HashMap<>();
         update.put("added", "" + System.currentTimeMillis());
         update.put("question", question);
+        update.put("author/insanityLevel", "9/10");
+        update.put("author/name", "Janusz");
         FirebaseDatabase
                 .getInstance()
                 .getReference()
                 .child("ask")
                 .push()
-                .setValue(update);
+                .updateChildren(update);
     }
 }
