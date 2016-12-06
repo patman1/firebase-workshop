@@ -12,6 +12,7 @@ import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.wearadvisor.WearAdvisor;
+import com.wearadvisor.db.items.Question;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -69,17 +70,13 @@ public enum Connector {
                 });
     }
 
-    public void ask(String question) {
-        Map<String, Object> update = new HashMap<>();
-        update.put("added", "" + System.currentTimeMillis());
-        update.put("question", question);
-        update.put("author/insanityLevel", "9/10");
-        update.put("author/name", "Janusz");
+    public void ask(String text) {
+        Question question = new Question("Me", text, System.currentTimeMillis());
         FirebaseDatabase
                 .getInstance()
                 .getReference()
                 .child("ask")
                 .push()
-                .updateChildren(update);
+                .setValue(question);
     }
 }
