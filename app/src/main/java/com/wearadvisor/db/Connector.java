@@ -9,6 +9,7 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 import com.wearadvisor.WearAdvisor;
 
 public enum Connector {
@@ -62,5 +63,13 @@ public enum Connector {
 
                     }
                 });
+    }
+
+    public void ask(String question) {
+        FirebaseDatabase
+                .getInstance()
+                .getReference()
+                .child("ask")
+                .setValue(question);
     }
 }
