@@ -1,4 +1,7 @@
 path / {
   read() { auth != null }
-  write() { auth != null }
+}
+
+path /users/{uidPath} {
+    write() { auth.uid == uidPath }
 }
