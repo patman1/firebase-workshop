@@ -2,10 +2,14 @@ path / {
   read() { auth != null }
 }
 
-path /users/{uidPath} is ShortString {
+path /users/{uidPath} is Name {
     write() { auth.uid == uidPath }
 }
 
 type ShortString extends String {
   validate() { this.length < 8 }
+}
+
+type Name extends ShortString {
+  validate() { this.matches(/^[a-zA-Z]*$/) }
 }

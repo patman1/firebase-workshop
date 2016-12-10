@@ -3,7 +3,7 @@
     ".read": "auth != null",
     "users": {
       "$uidPath": {
-        ".validate": "newData.isString() && newData.val().length < 8",
+        ".validate": "newData.isString() && newData.val().length < 8 && newData.val().matches(/^[a-zA-Z]*$/)",
         ".write": "auth.uid == $uidPath"
       }
     }
