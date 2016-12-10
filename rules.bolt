@@ -2,6 +2,10 @@ path / {
   read() { auth != null }
 }
 
-path /users/{uidPath} {
+path /users/{uidPath} is ShortString {
     write() { auth.uid == uidPath }
+}
+
+type ShortString extends String {
+  validate() { this.length < 8 }
 }
