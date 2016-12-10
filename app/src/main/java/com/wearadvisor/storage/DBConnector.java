@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
@@ -17,6 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.wearadvisor.WearAdvisor;
 import com.google.firebase.database.FirebaseDatabase;
+import com.wearadvisor.storage.entities.Question;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -118,6 +118,16 @@ public enum DBConnector {
             }
         });
     }
+
+    public void addQuestion(Question question) {
+        database
+                .getReference()
+                .child("ask")
+                .push()
+                .setValue(question);
+
+    }
+
 
     public Cancellable observeReference(final DatabaseReference reference, final Callback<DataSnapshot> callback) {
 

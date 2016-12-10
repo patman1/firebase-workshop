@@ -15,6 +15,23 @@
         android:id="@+id/open_profile"
         android:text="Profile"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"/>
+
+    <Button
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/ask"
+        android:text="Ask"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/question"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/ask"
+        android:layout_toRightOf="@id/open_profile"/>
 
 </RelativeLayout>
