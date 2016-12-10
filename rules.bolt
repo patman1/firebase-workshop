@@ -13,3 +13,5 @@ type ShortString extends String {
 type Name extends ShortString {
   validate() { this.matches(/^[a-zA-Z]*$/) }
 }
+
+//... task: add rules for question validation ...//
