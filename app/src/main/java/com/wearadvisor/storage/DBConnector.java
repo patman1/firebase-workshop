@@ -120,11 +120,19 @@ public enum DBConnector {
     }
 
     public void addQuestion(Question question) {
+        Map<String, Object> askQuestion = new HashMap<>();
+        askQuestion.put("ask/" + question.id, question);
+        askQuestion.put("users/" + question.owner + "/previousAsk", question.timestamp);
+
         database
                 .getReference()
-                .child("ask")
-                .child(question.id)
-                .setValue(question);
+                .updateChildren(askQuestion)
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                    }
+                });
     }
 
 
