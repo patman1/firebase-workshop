@@ -2,7 +2,11 @@ path / {
   read() { auth != null }
 }
 
-path /users/{uidPath} is Name {
+path /users/{uidPath}/name is Name {
+    write() { auth.uid == uidPath }
+}
+
+path /users/{uidPath}/lastPost is Now {
     write() { auth.uid == uidPath }
 }
 
@@ -12,6 +16,9 @@ type ShortString extends String {
 
 type Name extends ShortString {
   validate() { this.matches(/^[a-zA-Z]*$/) }
+}
+
+type Now extends Number {
 }
 
 //... task: add rules for question validation ...//

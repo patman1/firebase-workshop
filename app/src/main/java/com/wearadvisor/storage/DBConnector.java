@@ -96,6 +96,7 @@ public enum DBConnector {
                 .getReference()
                 .child("users")
                 .child(uid)
+                .child("name")
                 .setValue(name)
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -109,7 +110,8 @@ public enum DBConnector {
         DatabaseReference ref = database
                 .getReference()
                 .child("users")
-                .child(uid);
+                .child(uid)
+                .child("name");
 
         return observeReference(ref, new Callback<DataSnapshot>() {
             @Override
