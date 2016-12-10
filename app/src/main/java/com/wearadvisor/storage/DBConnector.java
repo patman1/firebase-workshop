@@ -123,9 +123,8 @@ public enum DBConnector {
         database
                 .getReference()
                 .child("ask")
-                .push()
+                .child(question.id)
                 .setValue(question);
-
     }
 
 
